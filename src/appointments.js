@@ -28,7 +28,6 @@ const containersSave = () => {
                 equipmentsTotal : equipmentsTotal
             };
             containersList.push(container);
-            //console.log("Elemento agregado: " + JSON.stringify(containersList));
         };
 
         return {
