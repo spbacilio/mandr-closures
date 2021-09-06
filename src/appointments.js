@@ -1,18 +1,26 @@
+//Closure for save new vehicle
 const vehiclesSave = () => {
     let vehicleList = [];
     const closure = (tradeMark, model, plaque) => {
         let vehicle = {
-            tradeMark: tradeMark, model: model, plaque: plaque
+            tradeMark: tradeMark, 
+            model: model, 
+            plaque: plaque
         };
         vehicleList.push(vehicle);
     };
 
     return {
-        addVehicle: (tradeMark, model, plaque) => { return closure( tradeMark, model, plaque ) },
-        getVehicles: () => { return vehicleList }
+        addVehicle: (tradeMark, model, plaque) => { 
+            return closure( tradeMark, model, plaque ) 
+        },
+        getVehicles: () => { 
+            return vehicleList 
+        }
     };
 };
 
+//Closure for save new container
 const containersSave = () => {
     let containersList = [];
     const closure = (equipmentName, equipmentType, ownerIdentifier,
@@ -31,9 +39,10 @@ const containersSave = () => {
         };
 
         return {
-            addEquipment: (equipmentName, equipmentType, ownerIdentifier, ownerName, equipmentSize, bookingNumber, equipmentsTotal) => {
-                
-                return closure(equipmentName, equipmentType, ownerIdentifier, ownerName, equipmentSize, bookingNumber, equipmentsTotal)
+            addEquipment: (equipmentName, equipmentType, ownerIdentifier, 
+                ownerName, equipmentSize, bookingNumber, equipmentsTotal) => {        
+                return closure(equipmentName, equipmentType, ownerIdentifier, 
+                    ownerName, equipmentSize, bookingNumber, equipmentsTotal)
             },
             getContainers: () => {
                 return containersList;
@@ -41,6 +50,7 @@ const containersSave = () => {
         };
 };
 
+//Create the appointment header
 const appointmentHeader = () => {
     return appointmentMainHeader = {
         appointmentType: "SALIDA",
@@ -59,6 +69,7 @@ const appointmentHeader = () => {
     };
 };
 
+//Closures testing
 const createAppointment = () =>{
     vehicles = vehiclesSave();
     vehicles.addVehicle("KENWORTH", "T-660", "AS-34K45");
@@ -76,5 +87,6 @@ const createAppointment = () =>{
     return appointmentBody;
 }
 
+//Execute
 let appointment = createAppointment();
 console.log(JSON.stringify(appointment));
